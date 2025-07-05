@@ -8,6 +8,8 @@ load_dotenv()
 class Config:
     # app
     TEMPLATES_AUTO_RELOAD = True
+    # admin
+    FLASK_ADMIN_SWATCH = 'cerulean'
     # db
     POSTGRES_NAME = os.getenv("POSTGRES_NAME", "")
     POSTGRES_USER = os.getenv("POSTGRES_USER", "")

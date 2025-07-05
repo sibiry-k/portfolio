@@ -1,10 +1,13 @@
 from flask import Flask, render_template
+from flask_admin import Admin
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from settings import config
 
 app = Flask(__name__)
 app.config.from_object(config)
+
+admin = Admin(app, name='portfolio', template_mode='bootstrap3')
 
 app.jinja_env.add_extension('pypugjs.ext.jinja.PyPugJSExtension')
 
