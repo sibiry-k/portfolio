@@ -1,0 +1,20 @@
+target-version = "py313"
+line-length = 79
+indent-width = 4
+src = ['portfolio']
+
+[lint]
+preview = true
+select = ["E", "F", "I", "C90"]
+
+[lint.per-file-ignores]
+"__init__.py" = ["F401"]
+
+[lint.isort]
+case-sensitive = true
+known-first-party = ['']
+
+[format]
+preview = true
+quote-style = "preserve"
+exclude = ['']
