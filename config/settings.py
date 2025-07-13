@@ -8,6 +8,7 @@ load_dotenv()
 class Config:
     # app
     TEMPLATES_AUTO_RELOAD = True
+    EXPLAIN_TEMPLATE_LOADING = True
     # admin
     FLASK_ADMIN_SWATCH = 'cerulean'
     # db
