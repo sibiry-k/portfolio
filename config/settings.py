@@ -7,8 +7,10 @@ load_dotenv()
 
 class Config:
     # app
+    FLASK_APP = os.getenv('FLASK_APP')
     TEMPLATES_AUTO_RELOAD = True
     EXPLAIN_TEMPLATE_LOADING = True
+    SECRET_KEY = os.getenv('SECRET_KEY')
     # admin
     FLASK_ADMIN_SWATCH = 'cerulean'
     # db

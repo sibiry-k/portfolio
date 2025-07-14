@@ -16,6 +16,10 @@ h2
   font-size 16pt
   color white
 
+h3
+  font-size 12pt
+  color black
+
 a
   text-decoration none
 
@@ -23,18 +27,22 @@ a
 .navigation
   display grid
   grid-template-columns 1fr auto 1fr
+  grid-template-areas "logo nav-list nav-list"
   align-items center
   max-width 100%
   max-height 80px
   background-color #000157
 
+
 .logo
+  grid-area logo
   display flex
   flex-flow row nowrap
   max-width: 100%;
   padding-left 150px
 
 .nav-list
+  grid-area nav-list
   display flex
   justify-content space-between
   list-style-type none
@@ -42,5 +50,7 @@ a
   margin 0
 
 .nav-item
+  display flex
+  flex-wrap nowrap
   margin 5px
   padding 5px
