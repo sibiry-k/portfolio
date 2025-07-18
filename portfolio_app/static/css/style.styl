@@ -14,15 +14,17 @@ h1
 
 h2
   font-size 16pt
-  color white
+  color #000157
 
 h3
   font-size 12pt
-  color black
+  color blue
 
 a
   text-decoration none
 
+.width-wide
+  margin 0 150px 0
 
 .navigation
   display grid
@@ -34,23 +36,39 @@ a
   background-color #000157
 
 
-.logo
-  grid-area logo
-  display flex
-  flex-flow row nowrap
-  max-width: 100%;
-  padding-left 150px
+  .logo
+    grid-area logo
+    display flex
+    flex-flow row nowrap
+    max-width: 100%;
+    padding-left 150px
 
-.nav-list
-  grid-area nav-list
-  display flex
-  justify-content space-between
-  list-style-type none
-  padding-right 50px
-  margin 0
+  .nav-list
+    grid-area nav-list
+    display flex
+    justify-content space-between
+    list-style-type none
+    padding-right 200px
+    margin 0
 
-.nav-item
-  display flex
-  flex-wrap nowrap
-  margin 5px
-  padding 5px
+  .nav-item
+    display flex
+    flex-wrap nowrap
+    margin 5px
+    padding 5px
+
+  .header-link
+    font-size 20pt
+    color white
+
+  .header-link-item
+    font-size 16pt
+    color white
+
+.about
+  display grid
+  grid-template-columns 1fr 1fr
+
+  p
+    font-size 14pt
+    color #000157

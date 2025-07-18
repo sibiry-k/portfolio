@@ -21,8 +21,9 @@ services:
     stop_signal: SIGINT
     volumes:
       - .:/app
-      - ./templates:/app/templates
-      - ./static:/app/static
+      - ./portfolio_app/templates:/app/portfolio_app/templates
+      - ./portfolio_app/static:/app/portfolio_app/static
+      - ./media_data:/app/media_data
     depends_on:
       - db
 

@@ -15,14 +15,17 @@ h1 {
 }
 h2 {
   font-size: 16pt;
-  color: #fff;
+  color: #000157;
 }
 h3 {
   font-size: 12pt;
-  color: #000;
+  color: #00f;
 }
 a {
   text-decoration: none;
+}
+.width-wide {
+  margin: 0 150px 0;
 }
 .navigation {
   display: grid;
@@ -33,24 +36,40 @@ a {
   max-height: 80px;
   background-color: #000157;
 }
-.logo {
+.navigation .logo {
   grid-area: logo;
   display: flex;
   flex-flow: row nowrap;
   max-width: 100%;
   padding-left: 150px;
 }
-.nav-list {
+.navigation .nav-list {
   grid-area: nav-list;
   display: flex;
   justify-content: space-between;
   list-style-type: none;
-  padding-right: 50px;
+  padding-right: 200px;
   margin: 0;
 }
-.nav-item {
+.navigation .nav-item {
   display: flex;
   flex-wrap: nowrap;
   margin: 5px;
   padding: 5px;
+}
+.navigation .header-link {
+  font-size: 20pt;
+  color: #fff;
+}
+.navigation .header-link-item {
+  font-size: 16pt;
+  color: #fff;
+}
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.about p {
+  font-size: 14pt;
+  color: #000157;
 }

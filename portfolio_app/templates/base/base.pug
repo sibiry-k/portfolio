@@ -4,25 +4,9 @@ html(lang="ru")
     meta(charset="UTF-8")
     title Антон Иванов - Python Developer | Python-разработчик
     link(rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}")
-    script(src="{{ url_for( 'static', filename='js/htmx.min.js') }}")
+    script(src="{{ url_for('static', filename='js/htmx.min.js') }}")
   body
-    header.navigation
-      .logo
-        a(href="")
-          h1 PYTHON DEVELOPER
-      ul.nav-list
-        li.nav-item
-          a(href="")
-            h2  Главная
-        li.nav-item
-          a(href="")
-            h2  Обо мне
-        li.nav-item
-          a(href="")
-            h2  Проекты
-        li.nav-item
-          a(href="")
-            h2  Контакты
-    
+    block header
+      include base/header
     block content
     block footer

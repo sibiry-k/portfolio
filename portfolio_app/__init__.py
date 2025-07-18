@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_admin import Admin
 
 from . import views
 
@@ -14,5 +15,7 @@ def create_app(test_config=None):
         app.config.from_mapping(test_config)
 
     app.register_blueprint(views.bp)
+
+    admin = Admin(app, name='MyPortfolio', template_mode='bootstrap3')  # noqa: F841
 
     return app
