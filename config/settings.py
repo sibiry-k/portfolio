@@ -1,9 +1,5 @@
 import os
 
-from dotenv import load_dotenv
-
-load_dotenv()
-
 
 class Config:
     # app
@@ -14,7 +10,7 @@ class Config:
     # admin
     FLASK_ADMIN_SWATCH = 'cerulean'
     # db
-    POSTGRES_NAME = os.getenv("POSTGRES_NAME", "")
+    POSTGRES_DB = os.getenv("POSTGRES_DB", "")
     POSTGRES_USER = os.getenv("POSTGRES_USER", "")
     POSTGRES_PASSWORD = os.getenv("POSTGRES_PASSWORD", "")
     POSTGRES_HOST = os.getenv("POSTGRES_HOST", "localhost")
@@ -24,7 +20,7 @@ class Config:
     def SQLALCHEMY_DATABASE_URI(cls):
         return (
             f"postgresql+psycopg2://{cls.POSTGRES_USER}:{cls.POSTGRES_PASSWORD}@"
-            f"{cls.POSTGRES_HOST}:{cls.POSTGRES_PORT}/{cls.POSTGRES_NAME}"
+            f"{cls.POSTGRES_HOST}:{cls.POSTGRES_PORT}/{cls.POSTGRES_DB}"
         )
 
 

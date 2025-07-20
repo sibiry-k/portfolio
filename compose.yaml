@@ -12,6 +12,11 @@ services:
     # restart: always
     ports:
       - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
   web:
     container_name: portfolio_web
@@ -19,13 +24,19 @@ services:
     ports:
       - "5000:5000"
     stop_signal: SIGINT
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
+      FLASK_APP: portfolio_app
     volumes:
       - .:/app
       - ./portfolio_app/templates:/app/portfolio_app/templates
       - ./portfolio_app/static:/app/portfolio_app/static
       - ./media_data:/app/media_data
     depends_on:
-      - db
+      db:
+        condition: service_healthy
 
   nginx:
     container_name: portfolio_nginx

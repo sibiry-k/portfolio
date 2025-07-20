@@ -1,0 +1,23 @@
+extends "base/base.pug"
+block content
+  .width-wide
+    .registration
+      .registartion-form
+        h2 Регистрация
+        form(method='post')
+          {{ form.csrf_token }}
+          h3 Имя пользователя:
+          {{ form.username }}
+          h3 e-mail:
+          {{ form.email }}
+          h3 Придумайте пароль
+          {{ form.password }}
+          h3 Подтвердите пароль
+          {{ form.password2 }}
+          br
+          {{ form.submit }}
+      .registartion-flash
+        - with messages = get_flashed_messages()
+          if messages
+            for message in messages
+              p.warning= message
