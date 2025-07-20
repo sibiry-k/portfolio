@@ -4,6 +4,7 @@ from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
 from flask_login import LoginManager
 
+from .admin.views import MyAdminIndexView
 from .db import db, init_db, migrate, wait_for_db
 
 
@@ -32,7 +33,12 @@ def create_app(test_config=None):
     def load_user(user_id):
         return db.session.query(User).get(user_id)
 
-    admin = Admin(app, name='Админка MyPortfolio', template_mode='bootstrap3')
+    admin = Admin(
+        app,
+        name='Админка MyPortfolio',
+        template_mode='bootstrap3',
+        index_view=MyAdminIndexView(),
+    )
 
     admin.add_view(ModelView(User, db.session))
     admin.add_view(ModelView(Project, db.session))
