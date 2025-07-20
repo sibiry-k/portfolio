@@ -1,5 +1,11 @@
-from flask import Blueprint, flash, redirect, render_template, url_for
-from flask_login import login_user
+from flask import (
+    Blueprint,
+    flash,
+    redirect,
+    render_template,
+    url_for,
+)
+from flask_login import login_required, login_user, logout_user
 
 from .db import db
 from .forms import LoginForm, RegistrationForm
@@ -29,11 +35,19 @@ def register():
 def login():
     form = LoginForm()
     if form.validate_on_submit():
-        user = User.query.filter_by(username=form.username.data).first()
+        login_user(form.get_user())
 
-        if user and user.check_password(form.password.data):
-            login_user(user, remember=form.remember_me.data)
-            return redirect(url_for('admin'))
+        flash('Вы успешно вошли')
+
+        return redirect(url_for('admin.index'))
+    return render_template('base/login.pug', form=form)
+
+
+@bp.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('main.index'))
 
 
 @bp.route('/')

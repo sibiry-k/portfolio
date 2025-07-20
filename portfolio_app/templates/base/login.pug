@@ -1,0 +1,19 @@
+extends "base/base.pug"
+block content
+  .width-wide
+    .login
+      .login-form
+        h2 Вход
+        form(method='post')
+          {{ form.csrf_token }}
+          h3 Имя пользователя
+          {{ form.username }}
+          h3 Введите пароль
+          {{ form.password }}
+          br
+          {{ form.submit }}
+      .login-flash
+          - with messages = get_flashed_messages()
+            if messages
+              for message in messages
+                p.warning= message
