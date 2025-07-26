@@ -1,8 +1,10 @@
+from config.settings import config
 from flask import (
     Blueprint,
     flash,
     redirect,
     render_template,
+    send_from_directory,
     url_for,
 )
 from flask_login import current_user, login_required, login_user, logout_user
@@ -12,6 +14,11 @@ from .forms import LoginForm, RegistrationForm
 from .models import User
 
 bp = Blueprint('main', __name__)
+
+
+@bp.route('/media_data/<path:filename>')
+def media_data_files(filename):
+    return send_from_directory(config.UPLOAD_FOLDER, filename)
 
 
 @bp.route('/register', methods=['GET', 'POST'])

@@ -1,5 +1,3 @@
-import os
-
 from config.settings import config
 from flask import Flask
 from flask_admin import Admin
@@ -43,11 +41,11 @@ def create_app(test_config=None):
         index_view=MyAdminIndexView(),
     )
 
-    path = os.path.join(os.path.dirname(__file__), 'static')
+    path = config.UPLOAD_FOLDER
 
     admin.add_view(ModelView(User, db.session, name='Пользователи'))
     admin.add_view(ProjectView(Project, db.session, name='Проекты'))
-    admin.add_view(FileAdmin(path, '/static/', name='Файлы'))
+    admin.add_view(FileAdmin(path, '/media_data/', name='Файлы'))
 
     app.register_blueprint(views.bp)
 
