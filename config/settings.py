@@ -15,6 +15,9 @@ class Config:
     POSTGRES_PASSWORD = os.getenv("POSTGRES_PASSWORD", "")
     POSTGRES_HOST = os.getenv("POSTGRES_HOST", "localhost")
     POSTGRES_PORT = os.getenv("POSTGRES_PORT", 5432)
+    # Images
+    UPLOAD_FOLDER = os.path.join(os.getcwd(), 'media_data')
+    ALLOWED_EXTENSIONS = ['png', 'jpg', 'jpeg', 'gif']
 
     @property
     def SQLALCHEMY_DATABASE_URI(cls):

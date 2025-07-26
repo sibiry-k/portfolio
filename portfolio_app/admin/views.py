@@ -1,5 +1,6 @@
 from flask import flash, redirect, request, url_for
 from flask_admin import AdminIndexView
+from flask_admin.contrib.sqla import ModelView
 from flask_login import current_user
 
 
@@ -13,3 +14,8 @@ class MyAdminIndexView(AdminIndexView):
         else:
             flash('У вас нет прав для доступа к этой странице')
             return redirect(url_for('main.index'))
+
+
+class ProjectView(ModelView):
+    form_excluded_columns = []
+    form_columns = ['title', 'description', 'role', 'img_path']

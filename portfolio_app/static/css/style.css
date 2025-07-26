@@ -62,7 +62,7 @@ a {
   color: #fff;
 }
 .navigation .header-link-item {
-  font-size: 16pt;
+  font-size: 14pt;
   color: #fff;
 }
 .about {
@@ -72,4 +72,13 @@ a {
 .about p {
   font-size: 14pt;
   color: #000157;
+}
+.my-photo {
+  display: block;
+  margin-top: 20px;
+  margin-left: 100px;
+}
+.my-photo img {
+  width: 300px;
+  height: auto;
 }

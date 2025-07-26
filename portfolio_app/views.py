@@ -5,7 +5,7 @@ from flask import (
     render_template,
     url_for,
 )
-from flask_login import login_required, login_user, logout_user
+from flask_login import current_user, login_required, login_user, logout_user
 
 from .db import db
 from .forms import LoginForm, RegistrationForm
@@ -16,6 +16,7 @@ bp = Blueprint('main', __name__)
 
 @bp.route('/register', methods=['GET', 'POST'])
 def register():
+    """Регистрирует пользователя."""
     form = RegistrationForm()
     if form.validate_on_submit():
         if User.query.filter_by(username=form.username.data).first():
@@ -33,6 +34,7 @@ def register():
 
 @bp.route('/login', methods=['GET', 'POST'])
 def login():
+    """Авторизует текущего пользователя."""
     form = LoginForm()
     if form.validate_on_submit():
         login_user(form.get_user())
@@ -46,10 +48,20 @@ def login():
 @bp.route('/logout')
 @login_required
 def logout():
+    """Снимает авторизацию текущему пользователю."""
     logout_user()
     return redirect(url_for('main.index'))
 
 
+@bp.route('/lk')
+@login_required
+def lk():
+    """Отображает личный кабинет пользователя."""
+    user = User.query.filter_by(username=current_user.username).first()
+    return render_template('lk.pug', user=user)
+
+
 @bp.route('/')
 def index():
-    return render_template("index.pug")
+    """Отображает главную страницу."""
+    return render_template('index.pug')

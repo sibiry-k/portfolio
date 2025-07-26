@@ -6,11 +6,11 @@ block content
         h2 Вход
         form(method='post')
           {{ form.csrf_token }}
-          h3 Имя пользователя
+          h3 {{ form.username.label }}
           {{ form.username }}
-          h3 Введите пароль
+          h3 {{ form.password.label }}
           {{ form.password }}
-          br
+          .button-submit
           {{ form.submit }}
       .login-flash
           - with messages = get_flashed_messages()

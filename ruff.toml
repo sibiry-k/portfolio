@@ -5,7 +5,8 @@ src = ['portfolio']
 
 [lint]
 preview = true
-select = ["E", "F", "I", "C90"]
+select = ["E", "F", "I", "C90", "ANN"]
+ignore = ["ANN001", "ANN003", "ANN201", "ANN202", "ANN204"]
 
 [lint.per-file-ignores]
 "__init__.py" = ["F401"]

@@ -1,10 +1,13 @@
+import os
+
 from config.settings import config
 from flask import Flask
 from flask_admin import Admin
+from flask_admin.contrib.fileadmin import FileAdmin
 from flask_admin.contrib.sqla import ModelView
 from flask_login import LoginManager
 
-from .admin.views import MyAdminIndexView
+from .admin.views import MyAdminIndexView, ProjectView
 from .db import db, init_db, migrate, wait_for_db
 
 
@@ -40,8 +43,11 @@ def create_app(test_config=None):
         index_view=MyAdminIndexView(),
     )
 
-    admin.add_view(ModelView(User, db.session))
-    admin.add_view(ModelView(Project, db.session))
+    path = os.path.join(os.path.dirname(__file__), 'static')
+
+    admin.add_view(ModelView(User, db.session, name='Пользователи'))
+    admin.add_view(ProjectView(Project, db.session, name='Проекты'))
+    admin.add_view(FileAdmin(path, '/static/', name='Файлы'))
 
     app.register_blueprint(views.bp)
 

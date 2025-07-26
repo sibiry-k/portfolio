@@ -6,16 +6,16 @@ block content
         h2 Регистрация
         form(method='post')
           {{ form.csrf_token }}
-          h3 Имя пользователя:
+          h3 {{ form.username.label }}
           {{ form.username }}
-          h3 e-mail:
+          h3 {{ form.email.label }}
           {{ form.email }}
-          h3 Придумайте пароль
+          h3 {{ form.password.label }}
           {{ form.password }}
-          h3 Подтвердите пароль
+          h3 {{ form.password2.label }}
           {{ form.password2 }}
-          br
-          {{ form.submit }}
+          .button-submit
+            {{ form.submit }}
       .registartion-flash
         - with messages = get_flashed_messages()
           if messages
