@@ -93,4 +93,4 @@ __marimo__/
 
 #Custom gitignore
 .idea
-portfolio_app/static/img
+portfolio_app/static/img/
