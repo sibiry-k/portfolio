@@ -18,4 +18,10 @@ class MyAdminIndexView(AdminIndexView):
 
 class ProjectView(ModelView):
     form_excluded_columns = []
-    form_columns = ['title', 'description', 'role', 'img_path']
+    form_columns = [
+        'title',
+        'description',
+        'stack',
+        'role',
+        'tasks',
+    ]

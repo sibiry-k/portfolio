@@ -11,7 +11,7 @@ from flask_login import current_user, login_required, login_user, logout_user
 
 from .db import db
 from .forms import LoginForm, RegistrationForm
-from .models import User
+from .models import Project, User
 
 bp = Blueprint('main', __name__)
 
@@ -71,4 +71,5 @@ def lk():
 @bp.route('/')
 def index():
     """Отображает главную страницу."""
-    return render_template('index.pug')
+    projects = Project.query.all()
+    return render_template('index.pug', projects=projects)

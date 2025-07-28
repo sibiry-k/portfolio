@@ -45,5 +45,7 @@ class Project(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(80), unique=True, nullable=False)
     description = db.Column(db.Text, nullable=False)
+    stack = db.Column(db.Text, nullable=False)
     role = db.Column(db.String(80), nullable=False)
-    img_path = db.Column(db.String(120), nullable=False)
+    tasks = db.Column(db.Text, nullable=False)
+    img_path = db.Column(db.String(120), nullable=True)

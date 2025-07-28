@@ -7,13 +7,21 @@ block content
       .greeting
         h2 Привет!
         h2 Я Python Backend Developer
-        p Обо мне
-        p C 2022 года я занимаюсь разработкой на языке программирования Python.
-          br
-          |У меня есть опыт работы с такими фреймворками как Django, FastAPI и Flask,
-          |а также опыт написания телеграм-ботов и парсеров.
+        p C 2022 года я занимаюсь разработкой на языке программирования Python. У меня есть опыт работы с такими фреймворками как Django, FastAPI и Flask, а также опыт написания телеграм-ботов и парсеров.
         p Информацию о наиболее значимых проектах я разместил на данном сайте,
           |  с остальными проектами можно ознакомиться в моем репозитории
+          img(src="{{ url_for('static', filename='img/github.svg') }}" width='25' height='25')
           a(href="https://github.com/sibiry-k")  Github
+    h2(id="projects") Проекты
     .projects
+      for project in projects
+        ul.cards-list
+          li.card-item
+            h3 {{ project.title }}
+            p {{ project.description }}
+            p {{ project.stack }}
+            p {{ project.role }}
+            p {{ project.tasks }}
+
     .contacts
+      h2(id="contacts") Контакты

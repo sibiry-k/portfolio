@@ -4,6 +4,7 @@ body {
   margin: 0;
   height: 100%;
   font-family: Helvetica, Geneva, sans-serif;
+  color: #fff;
 }
 body {
   display: flex;
@@ -25,53 +26,48 @@ a {
   text-decoration: none;
 }
 .width-wide {
-  margin: 0 150px 0;
+  margin: 0 200px 0;
 }
 .navigation {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  grid-template-areas: "logo nav-list nav-list";
-  align-items: center;
-  max-width: 100%;
-  max-height: 80px;
+  display: inline-flex;
+  justify-content: space-between;
+  width: 100%;
   background-color: #000157;
 }
 .navigation .logo {
-  grid-area: logo;
   display: flex;
-  flex-flow: row nowrap;
-  max-width: 100%;
-  padding-left: 150px;
+  align-self: center;
+  margin-left: 200px;
 }
-.navigation .nav-list {
-  grid-area: nav-list;
-  display: flex;
-  justify-content: space-between;
-  list-style-type: none;
-  padding-right: 200px;
-  margin: 0;
-}
-.navigation .nav-item {
-  display: flex;
-  flex-wrap: nowrap;
-  margin: 5px;
-  padding: 5px;
-}
-.navigation .header-link {
+.navigation .logo a {
   font-size: 20pt;
   color: #fff;
 }
-.navigation .header-link-item {
-  font-size: 14pt;
+.navigation .nav-list ul {
+  display: inline-flex;
+  list-style-type: none;
+  margin-right: 200px;
+}
+.navigation .nav-list ul .nav-item {
+  display: flex;
+  flex-wrap: nowrap;
+  text-transform: uppercase;
+  margin-right: 20px;
+}
+.navigation .nav-list ul .nav-item a {
+  font-size: 14px;
   color: #fff;
 }
 .about {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  margin-top: 30px;
+  margin-bottom: 60px;
 }
 .about p {
   font-size: 14pt;
   color: #000157;
+  text-align: justify;
 }
 .my-photo {
   display: block;
@@ -81,4 +77,37 @@ a {
 .my-photo img {
   width: 300px;
   height: auto;
+}
+.projects {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+.projects .cards-list {
+  display: inline-flex;
+  background-color: #f0f0ff;
+  border-radius: 10px;
+  margin: 20px;
+  padding: 20px;
+  list-style: none;
+}
+.projects .cards-list .card-item {
+  max-width: 350px;
+  height: 400px;
+}
+.projects .cards-list .card-item p {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 13pt;
+  color: #000157;
+}
+footer {
+  width: 100%;
+  max-height: 60px;
+  color: #fff;
+  background-color: #000157;
+}
+footer p {
+  font-size: 10px;
+  margin: 5px;
 }
