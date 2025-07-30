@@ -15,11 +15,11 @@ h1
 
 h2
   font-size 16pt
-  color #000157
+  color #214096
 
 h3
   font-size 12pt
-  color blue
+  color #214096
 
 a
   text-decoration none
@@ -27,20 +27,40 @@ a
 .width-wide
   margin 0 200px 0
 
+  @media(max-width 1100px)
+    margin 0
+    padding 0
+
 .navigation
   display inline-flex
   justify-content space-between
   width 100%
-  background-color #000157
+  background-color #2a52be
 
   .logo
     display flex
-    align-self center
+    margin-top 10px
+    margin-bottom 10px
     margin-left 200px
 
     a
+      display inline-flex
+      align-self center
       font-size 20pt
+      gap 20px
       color white
+
+      img
+        width 35px
+        height 35px
+
+      p
+        margin 0
+        margin-top 5px
+        padding 0
+
+    @media(max-width 1100px)
+      margin-left 30px
 
   .nav-list ul
     display inline-flex
@@ -59,55 +79,116 @@ a
 
 
 .about
-  display grid
-  grid-template-columns 1fr 1fr
+  display flex
+  justify-content space-between
+  gap 40px
   margin-top 30px
-  margin-bottom 60px
+  padding 0 40px 0
 
   p
     font-size 14pt
-    color #000157
+    color #214096
     text-align justify
 
-.my-photo
-  display block
-  margin-top 20px
-  margin-left 100px
+  .my-photo
+    display flex
+    align-items center
 
-  img
-    width 300px
-    height auto
+    img
+      max-width 350px
+      min-width 250px
+      height auto
+
+  .greeting
+    display flex
+    flex-direction column
+    max-width 600px
+    min-width 400px
+
+    p
+      margin 5px
+      padding 0
+
+    li
+      color #214096
+
+  @media(max-width 1100px)
+    flex-direction column
+    align-items center
+    padding 0
 
 .projects
   display flex
+  flex-direction column
   justify-content center
-  margin-top 30px
+  margin-bottom 50px
 
-  .cards-list
-    display inline-flex
-    background-color #f0f0ff
-    border-radius 10px
-    margin 20px
-    padding 20px
-    list-style none
+  .projects-list
+    display flex
+    justify-content space-between
 
-    .card-item
-      max-width 350px
-      height 400 px
+    .cards-list
+      display inline-flex
+      background-color #f0f0ff
+      border-radius 10px
+      margin 20px
+      padding 10px
+      list-style none
 
-      p
+      .card-item
         display flex
-        flex-wrap wrap
-        font-size 13pt
-        color #000157
+        justify-content center
+        flex-direction column
+        height 400 px
+        padding 20px
+        max-width 500px
+        min-width 400px
 
+        p
+          font-size 13pt
+          color #214096
+          text-align justify
+          margin 5px
+          padding 0
+
+  @media(max-width 1100px)
+    flex-direction column
+    align-items center
+
+    .projects-list
+      flex-direction column
+      align-items center
+
+
+    .cards-list
+      max-width 500px
+      min-width 400px
 
 footer
+  display flex
+  justify-content space-between
+  align-items center
   width 100%
-  max-height 60px
   color white
-  background-color #000157
+  background-color #2a52be
 
-  p
+  .copyright
+    display flex
+    flex-direction column
+    flex-wrap nowrap
     font-size 10px
-    margin 5px
+    margin-top 5px
+    margin-left 200px
+    padding 0
+
+  .contacts
+    display flex
+    flex-wrap nowrap
+    margin-right 200px
+
+
+    ul
+      display inline-flex
+      justify-content space-between
+      gap 20px
+      list-style-type none

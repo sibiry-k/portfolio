@@ -1,10 +1,13 @@
 header
   nav.navigation
     .logo
-      a(href="#" class="header-link") IVANOV.DEV
+      a(href="#" class="header-link")
+        img(src="{{url_for ('static', filename='img/python-light.svg') }}")
+        p IVANOV.DEV
+
     .nav-list
-      ul
-        li.nav-item
-          a(href="#projects" class="header-link-item") Проекты
-        li.nav-item
-          a(href="#contacts") Контакты
+      //-ul
+      //-  li.nav-item
+      //-    a(href="#projects" class="header-link-item") Проекты
+      //-  li.nav-item
+      //-    a(href="#contacts") Контакты

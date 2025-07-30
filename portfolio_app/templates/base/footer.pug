@@ -1,4 +1,16 @@
 footer
-  .width-wide
+  .copyright
     p IVANOV.DEV
     p Все права защищены. &copy; 2025
+
+  .contacts
+    ul
+      li
+        a(href="https://t.me/allseeyou" target="_blank")
+          img(src="{{ url_for('static', filename='img/telegram.svg') }}" alt="Telegram")
+      li
+        a(href="mailto:anton.ivanov.krsk@yandex.ru" target="_blank" alt="E-mail")
+          img(src="{{ url_for('static', filename='img/email.svg') }}")
+      li
+        a(href="https://github.com/sibiry-k" target="_blank" alt="GitHub")
+          img(src="{{ url_for('static', filename='img/github.svg') }}")
