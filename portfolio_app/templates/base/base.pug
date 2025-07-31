@@ -5,6 +5,7 @@ html(lang="ru")
     title Антон Иванов - Python Developer | Python-разработчик
     link(rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}")
     script(src="{{ url_for('static', filename='js/htmx.min.js') }}")
+    script(src="https://smartcaptcha.yandexcloud.net/captcha.js" async defer)
   body
     block header
       include base/header

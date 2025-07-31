@@ -14,10 +14,20 @@ block content
           {{ form.password }}
           h3 {{ form.password2.label }}
           {{ form.password2 }}
+          .captcha
+            div(
+              style="height: 100px"
+              id="captcha-container"
+              class="smart-captcha"
+              data-sitekey="{{ captcha_key }}"
+              data-hl="ru"
+            )
+          .flash
+            - with messages = get_flashed_messages()
+              if messages
+                for message in messages
+                  p.warning= message
           .button-submit
             {{ form.submit }}
-      .registartion-flash
-        - with messages = get_flashed_messages()
-          if messages
-            for message in messages
-              p.warning= message
+
+

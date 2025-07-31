@@ -4,13 +4,14 @@ from flask import (
     flash,
     redirect,
     render_template,
+    request,
     send_from_directory,
     url_for,
 )
 from flask_login import current_user, login_required, login_user, logout_user
 
 from .db import db
-from .forms import LoginForm, RegistrationForm
+from .forms import CaptchaRegistrationForm, LoginForm
 from .models import Project, User
 
 bp = Blueprint('main', __name__)
@@ -24,8 +25,23 @@ def media_data_files(filename):
 @bp.route('/register', methods=['GET', 'POST'])
 def register():
     """Регистрирует пользователя."""
-    form = RegistrationForm()
+
+    form = CaptchaRegistrationForm()
     if form.validate_on_submit():
+        token = request.form.get('smart-token')
+
+        is_valid, error_message = form.validate_captcha(
+            token, request.remote_addr
+        )
+
+        if not is_valid:
+            flash(error_message)
+            return render_template(
+                'base/register.pug',
+                form=form,
+                captcha_key=form.get_captcha_client_key(),
+            )
+
         if User.query.filter_by(username=form.username.data).first():
             flash('Пользователь с таким именем уже существует')
             return redirect(url_for('main.register'))
@@ -36,7 +52,11 @@ def register():
         db.session.commit()
 
         return redirect(url_for('main.login'))
-    return render_template('base/register.pug', form=form)
+    return render_template(
+        'base/register.pug',
+        form=form,
+        captcha_key=form.get_captcha_client_key(),
+    )
 
 
 @bp.route('/login', methods=['GET', 'POST'])

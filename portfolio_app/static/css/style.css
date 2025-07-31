@@ -178,6 +178,7 @@ footer {
   width: 100%;
   color: #fff;
   background-color: #2a52be;
+  margin-top: auto;
 }
 footer .copyright {
   display: flex;
@@ -198,4 +199,21 @@ footer .contacts ul {
   justify-content: space-between;
   gap: 20px;
   list-style-type: none;
+}
+.registration {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.registration .registration-form {
+  margin-bottom: 40px;
+}
+.flash p {
+  font-size: 16px;
+  color: #f00;
+}
+.captcha {
+  display: flex;
+  height: 110px;
+  margin: 20px 0 20px;
 }

@@ -18,6 +18,9 @@ class Config:
     # Images
     UPLOAD_FOLDER = os.path.join(os.getcwd(), 'media_data')
     ALLOWED_EXTENSIONS = ['png', 'jpg', 'jpeg', 'gif']
+    # YandexCloud
+    CAPTCHA_CLIENT_KEY = os.getenv('CAPTCHA_CLIENT_KEY')
+    CAPTCHA_SERVER_KEY = os.getenv('CAPTCHA_SERVER_KEY')
 
     @property
     def SQLALCHEMY_DATABASE_URI(cls):
