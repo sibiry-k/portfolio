@@ -65,9 +65,7 @@ def login():
     form = LoginForm()
     if form.validate_on_submit():
         login_user(form.get_user())
-
         flash('Вы успешно вошли')
-
         return redirect(url_for('admin.index'))
     return render_template('base/login.pug', form=form)
 
