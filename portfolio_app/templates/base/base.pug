@@ -3,6 +3,10 @@ html(lang="ru")
   head
     meta(charset="UTF-8")
     title Антон Иванов - Python Developer | Python-разработчик
+    link(rel='icon' type='image/png' href='{{url_for("static", filename="img/favicon/favicon.png") }}')
+    link(rel='icon' type='image/png' sizes='32x32' href='{{url_for("static", filename="img/favicon/favicon-32x32.png") }}')
+    link(rel='icon' type='image/png' sizes='192x192' href='{{url_for("static", filename="img/favicon/favicon-192x192.png") }}')
+    link(rel='apple-touch-icon' type='image/png' href='{{url_for("static", filename="img/favicon/favicon-192x192.png") }}')
     link(rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}")
     script(src="{{ url_for('static', filename='js/htmx.min.js') }}")
     script(src="https://smartcaptcha.yandexcloud.net/captcha.js" async defer)

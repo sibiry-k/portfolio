@@ -19,6 +19,7 @@ bp = Blueprint('main', __name__)
 
 @bp.route('/media_data/<path:filename>')
 def media_data_files(filename):
+    """Отдает маршрут к папке загрузки."""
     return send_from_directory(config.UPLOAD_FOLDER, filename)
 
 
