@@ -14,21 +14,21 @@ def init_db(app):
 
 
 def wait_for_db(app):
-    """Waits for db to become available"""
+    """Проверяет подключение к БД."""
     with app.app_context():
         retries = 5
         while retries > 0:
             try:
                 db.session.execute(db.text('SELECT 1'))
-                print("DB is available")
+                print("БД доступна")
                 return True
             except OperationalError as e:
-                print(f"OperationalError: {e}")
+                print(f"Ошибка: {e}")
                 time.sleep(5)
                 retries -= 1
             except Exception as e:
-                print(f"Exception: {e}")
+                print(f"Исключение: {e}")
                 time.sleep(5)
                 retries -= 1
-        print("DB not available")
+        print("БД не доступна")
         return False

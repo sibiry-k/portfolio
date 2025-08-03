@@ -1,5 +1,4 @@
-volumes:
-  db_data:
+# portfolio_app_prod
 
 services:
   db:
@@ -8,7 +7,8 @@ services:
     env_file:
       - .env
     volumes:
-      - db_data:/var/lib/postgresql/data
+      - /srv/volumes/db_data:/var/lib/postgresql/data
+      - /srv/portfolio_db_dump:/docker-entrypoint-initdb.d
     # restart: always
     ports:
       - "5432:5432"
@@ -27,13 +27,12 @@ services:
     env_file:
       - .env
     environment:
-      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
-      FLASK_APP: portfolio_app
+      FLASK_ENV: production
     volumes:
       - .:/app
       - ./portfolio_app/templates:/app/portfolio_app/templates
       - ./portfolio_app/static:/app/portfolio_app/static
-      - ./media_data:/app/media_data
+      - /srv/volumes/media_data:/app/media_data
     depends_on:
       db:
         condition: service_healthy
@@ -47,3 +46,6 @@ services:
       - "80:80"
     depends_on:
       - web
+
+networks:
+  portfolio_dev: {}

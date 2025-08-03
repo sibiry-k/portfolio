@@ -1,0 +1,63 @@
+# portfolio_app_tests
+
+services:
+  db_tests:
+    container_name: portfolio_db_tests
+    image: postgres:17.5
+    environment:
+      POSTGRES_USER: portfolio
+      POSTGRES_PASSWORD: portfolio
+      POSTGRES_DB: portfolio_tests
+      POSTGRES_INITDB_ARGS: "--encoding=UTF8"
+    volumes:
+      - test_db_data:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+    networks:
+      - portfolio_tests
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d portfolio_tests"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  tests:
+    container_name: portfolio_tests
+    build:
+      context: .
+      dockerfile: Dockerfile.tests
+    environment:
+      FLASK_APP: portfolio_app
+      FLASK_ENV: testing
+      SECRET_KEY: test_secret_key_not_for_production
+      POSTGRES_USER: portfolio
+      POSTGRES_HOST: db_tests
+      POSTGRES_DB: portfolio_tests
+      POSTGRES_PASSWORD: portfolio
+      POSTGRES_PORT: 5432
+      CAPTCHA_CLIENT_KEY: test_client_key
+      CAPTCHA_SERVER_KEY: test_server_key
+    volumes:
+      - .:/app
+      - test_media_data:/app/test_media_data
+    networks:
+      - portfolio_tests
+    depends_on:
+      db_tests:
+        condition: service_healthy
+    command: >
+      sh -c "
+        echo 'Waiting for database ...' &&
+        export PYTHONPATH=/app:$PYTHONPATH &&
+        python -c 'import sys; sys.path.insert(0, \"/app\"); from portfolio_app import create_app; from portfolio_app.db import wait_for_db; app = create_app(\"testing\")' &&
+        echo 'Running tests ...' &&
+        export PYTHONPATH=/app:$PYTHONPATH &&
+        pytest -v --tb=short 
+      "
+
+volumes:
+  test_db_data:
+  test_media_data:
+
+networks:
+  portfolio_tests: {}

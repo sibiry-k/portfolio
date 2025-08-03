@@ -94,3 +94,5 @@ __marimo__/
 #Custom gitignore
 .idea
 media_data
+compose.override.yaml
+.env.tests

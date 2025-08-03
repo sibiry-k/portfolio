@@ -49,6 +49,8 @@ def register():
 
         user = User(username=form.username.data, email=form.email.data)
         user.set_password(form.password.data)
+        if User.query.count() == 0:
+            user.is_admin = True
         db.session.add(user)
         db.session.commit()
 
@@ -92,3 +94,10 @@ def index():
     """Отображает главную страницу."""
     projects = Project.query.all()
     return render_template('index.pug', projects=projects)
+
+
+@bp.route('/error500')
+def get_error_500():
+    """Выдает сообщение об ошибке 500."""
+    error500 = 1 / 0
+    return error500
