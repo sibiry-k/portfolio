@@ -1,12 +1,13 @@
 footer
   .copyright
-    p ivanov<b>dev</b>.ru
+    a(href="https://sibiryk.ru")
+      p sibiryk.ru
     p Все права защищены. &copy; 2025
 
   .contacts
     ul
       li
-        a(href="https://t.me/allseeyou" target="_blank")
+        a(href="https://t.me/sibirykdev" target="_blank")
           img(src="{{ url_for('static', filename='img/telegram.svg') }}" alt="Telegram")
       li
         a(href="mailto:anton.ivanov.krsk@yandex.ru" target="_blank" alt="E-mail")
@@ -14,3 +15,6 @@ footer
       li
         a(href="https://github.com/sibiry-k" target="_blank" alt="GitHub")
           img(src="{{ url_for('static', filename='img/github.svg') }}")
+      li
+        a(href="https://www.linkedin.com/in/anton-ivanov-krsk/" target="_blank" alt="LinkedIn")
+                  img(src="{{ url_for('static', filename='img/linkedin.svg') }}")

@@ -42,10 +42,23 @@ services:
     image: nginx:1.29.0
     volumes:
       - ./config/nginx/nginx.conf:/etc/nginx/templates/default.conf.template
+      - /srv/volumes/letsencrypt/etc:/etc/letsencrypt:ro
+      - /srv/volumes/letsencrypt/var:/var/lib/letsencrypt:ro
     ports:
       - "80:80"
+      - "443:443"
     depends_on:
       - web
+
+  certbot:
+    container_name: portfolio_certbot
+    image: certbot/certbot
+    volumes:
+      - /srv/volumes/letsencrypt/etc:/etc/letsencrypt
+      - /srv/volumes/letsencrypt/var:/var/lib/letsencrypt
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+    depends_on:
+      - nginx
 
 networks:
   portfolio_dev: {}

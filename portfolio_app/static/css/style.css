@@ -192,8 +192,8 @@ footer .copyright {
   margin-left: 200px;
   padding: 0;
 }
-footer .copyright b {
-  color: #00bfff;
+footer .copyright a {
+  color: #fff;
 }
 footer .contacts {
   display: flex;

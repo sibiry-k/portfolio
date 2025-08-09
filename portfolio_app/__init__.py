@@ -16,7 +16,6 @@ def create_app(flask_env=config.FLASK_ENV):
 
     if flask_env is None:
         flask_env = config.FLASK_ENV
-
     if flask_env == 'testing':
         app.config.from_object(testing_config)
     elif flask_env == 'development':
