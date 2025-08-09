@@ -21,3 +21,19 @@ jobs:
         with:
           push: true
           tags: sibiryk/portfolio:latest
+  deploy:
+    runs-on: ubuntu-latest
+    needs:
+      - build_and_push_to_docker_hub
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+      - name: Copy compose.yaml
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.SSH_KEY }}
+          passphrase: ${{ secrets.SSH_PASSPHRASE }}
+          source: "compose.yaml"
+          target: "portfolio"
