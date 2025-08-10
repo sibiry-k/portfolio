@@ -20,7 +20,7 @@ services:
 
   web:
     container_name: portfolio_web
-    build: .
+    image: sibiryk/portfolio:latest
     ports:
       - "5000:5000"
     stop_signal: SIGINT
