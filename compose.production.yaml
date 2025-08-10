@@ -20,7 +20,7 @@ services:
 
   web:
     container_name: portfolio_web
-    build: .
+    image: sibiryk/portfolio:latest
     ports:
       - "5000:5000"
     stop_signal: SIGINT
@@ -29,8 +29,8 @@ services:
     environment:
       FLASK_ENV: production
     volumes:
-      - ./portfolio_app/templates:/app/portfolio_app/templates
-      - ./portfolio_app/static:/app/portfolio_app/static
+      - /srv/portfolio/portfolio_app/templates:/app/portfolio_app/templates
+      - /srv/portfolio/portfolio_app/static:/app/portfolio_app/static
       - /srv/volumes/media_data:/app/media_data
     depends_on:
       db:
@@ -40,7 +40,7 @@ services:
     container_name: portfolio_nginx
     image: nginx:1.29.0
     volumes:
-      - ./config/nginx/nginx.conf:/etc/nginx/templates/default.conf.template
+      - /srv/portfolio/config/nginx/nginx.conf:/etc/nginx/templates/default.conf.template
       - /srv/volumes/letsencrypt/etc:/etc/letsencrypt:ro
       - /srv/volumes/letsencrypt/var:/var/lib/letsencrypt:ro
     ports:
