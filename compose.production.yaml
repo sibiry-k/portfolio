@@ -40,7 +40,7 @@ services:
     container_name: portfolio_nginx
     image: nginx:1.29.0
     volumes:
-      - /srv/portfolio/config/nginx/nginx.conf:/etc/nginx/templates/default.conf.template
+      - /srv/portfolio/config/nginx/nginx.production.conf:/etc/nginx/templates/default.conf.template
       - /srv/volumes/letsencrypt/etc:/etc/letsencrypt:ro
       - /srv/volumes/letsencrypt/var:/var/lib/letsencrypt:ro
     ports:
