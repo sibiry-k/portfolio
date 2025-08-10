@@ -1,4 +1,4 @@
-# portfolio_app_prod
+# portfolio_app_production
 
 services:
   db:
@@ -9,7 +9,7 @@ services:
     volumes:
       - /srv/volumes/db_data:/var/lib/postgresql/data
       - /srv/portfolio_db_dump:/docker-entrypoint-initdb.d
-    # restart: always
+    restart: always
     ports:
       - "5432:5432"
     healthcheck:
@@ -29,7 +29,6 @@ services:
     environment:
       FLASK_ENV: production
     volumes:
-      - .:/app
       - ./portfolio_app/templates:/app/portfolio_app/templates
       - ./portfolio_app/static:/app/portfolio_app/static
       - /srv/volumes/media_data:/app/media_data
