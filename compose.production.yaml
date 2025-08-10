@@ -29,8 +29,7 @@ services:
     environment:
       FLASK_ENV: production
     volumes:
-      - /srv/portfolio/portfolio_app/templates:/app/portfolio_app/templates
-      - /srv/portfolio/portfolio_app/static:/app/portfolio_app/static
+      - .:/app
       - /srv/volumes/media_data:/app/media_data
     depends_on:
       db:
