@@ -44,7 +44,7 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.SSH_PASSPHRASE }}
-          source: "config/nginx/nginx.production.conf"
+          source: "./config/nginx/nginx.production.conf"
           target: "/srv/portfolio/config/nginx/"
       - name: Executing remote ssh commands to deploy
         uses: appleboy/ssh-action@master
