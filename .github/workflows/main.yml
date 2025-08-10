@@ -49,6 +49,6 @@ jobs:
             sudo docker compose -f compose.yaml pull
             sudo docker compose -f compose.yaml down
             sudo docker compose -f compose.yaml up -d
-            sudo docker compose -f compose.yaml exec web flask db migrate
-            sudo docker compose -f compose.yaml exec web flask db upgrade
+            sudo docker compose -f compose.yaml exec portfolio_web flask db migrate
+            sudo docker compose -f compose.yaml exec portfolio_web flask db upgrade
             
