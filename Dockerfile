@@ -3,6 +3,7 @@ FROM python:3.13-slim
 WORKDIR /app
 
 ENV PYTHONUNBUFFERED=1
+ENV PYTHONPATH=/app
 
 # Install psycopg2 dependencies
 RUN apt-get update && apt-get install -y libpq-dev gcc
