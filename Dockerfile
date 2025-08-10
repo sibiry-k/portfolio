@@ -1,9 +1,8 @@
 FROM python:3.13-slim
 
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
-
 WORKDIR /app
+
+ENV PYTHONUNBUFFERED=1
 
 # Install psycopg2 dependencies
 RUN apt-get update && apt-get install -y libpq-dev gcc
