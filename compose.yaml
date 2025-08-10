@@ -61,4 +61,4 @@ services:
       - nginx
 
 networks:
-  portfolio_dev: {}
+  portfolio_network: {}

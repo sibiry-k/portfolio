@@ -25,6 +25,8 @@ def create_app(flask_env=config.FLASK_ENV):
         app.config['DEBUG'] = True
     else:
         app.config.from_object(config)
+        app.jinja_env.add_extension('pypugjs.ext.jinja.PyPugJSExtension')
+        app.jinja_env.auto_reload = True
 
     init_db(app)
 
