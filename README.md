@@ -1,11 +1,7 @@
 # 📇 Portfolio
 
-[![Python](https://img.shields.io/badge/Python-3.13-blue?logo=python)](https://www.python.org/)  
-[![Flask](https://img.shields.io/badge/Flask-3.1.1-lightgrey?logo=flask)](https://flask.palletsprojects.com/)  
-[![Docker](https://img.shields.io/badge/Docker-Compose-2496ED?logo=docker)](https://www.docker.com/)  
-[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-17-336791?logo=postgresql)](https://www.postgresql.org/)  
-[![Nginx](https://img.shields.io/badge/Nginx-LB-009639?logo=nginx)](https://nginx.org/)  
-[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.13-blue?logo=python)](https://www.python.org/) [![Flask](https://img.shields.io/badge/Flask-3.1.1-lightgrey?logo=flask)](https://flask.palletsprojects.com/) [![Docker](https://img.shields.io/badge/Docker-Compose-2496ED?logo=docker)](https://www.docker.com/) [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-17-336791?logo=postgresql)](https://www.postgresql.org/) [![Nginx](https://img.shields.io/badge/Nginx-LB-009639?logo=nginx)](https://nginx.org/) [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
 
 > 💼 Сайт-визитка на **Python (Flask)** c контейнеризацией и CI/CD.
 
