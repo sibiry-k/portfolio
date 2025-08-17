@@ -9,7 +9,7 @@ services:
     volumes:
       - /srv/volumes/db_data:/var/lib/postgresql/data
       - /srv/portfolio_db_dump:/docker-entrypoint-initdb.d
-    restart: always
+    # restart: always
     ports:
       - "5432:5432"
     healthcheck:
