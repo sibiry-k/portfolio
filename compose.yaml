@@ -23,6 +23,7 @@ services:
     build: .
     ports:
       - "5000:5000"
+    restart: unless-stopped
     stop_signal: SIGINT
     env_file:
       - .env
@@ -35,6 +36,12 @@ services:
     depends_on:
       db:
         condition: service_healthy
+    deploy:
+      resources:
+        limits:
+          cpus: '0.9'
+          memory: 768M
+    command: gunicorn --workers 2 --bind 0.0.0.0:5000 portfolio_app:create_app()
 
   nginx:
     container_name: portfolio_nginx
