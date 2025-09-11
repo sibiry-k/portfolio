@@ -59,3 +59,6 @@ def create_app(flask_env=config.FLASK_ENV):
     app.register_blueprint(views.bp)
 
     return app
+
+
+app = create_app()
