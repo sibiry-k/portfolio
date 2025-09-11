@@ -280,32 +280,28 @@ footer .contacts ul {
     margin-left: 0;
     padding: 0 10px;
   }
-  .about .greeting p {
+  .about .greeting p,
+  .about .greeting ul {
     font-size: 0.9rem;
   }
   .projects .projects-list {
     flex-direction: column;
     align-items: center;
   }
-  .projects .cards-list {
+  .projects .projects-list .cards-list {
     min-width: 0;
     max-width: 100%;
     margin: 10px;
     padding: 5px;
   }
-  .projects .cards-list .card-item {
+  .projects .projects-list .cards-list .card-item {
     min-width: 0;
     max-width: 100%;
     height: auto;
     padding: 10px;
   }
-  .projects .cards-list .card-item p {
-    font-size: 0.8rem;
-  }
-  footer {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px;
+  .projects .projects-list ul.cards-list li.card-item p {
+    font-size: 0.9rem;
   }
   footer .copyright,
   footer .contacts {
@@ -313,7 +309,7 @@ footer .contacts ul {
     margin-right: 10px;
   }
   footer .contacts ul {
-    flex-direction: column;
+    flex-direction: row;
     gap: 10px;
   }
 }
