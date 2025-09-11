@@ -1,3 +1,8 @@
+*,
+*::before,
+*::after
+  box-sizing border-box
+
 html, body
   padding 0
   margin 0
@@ -228,26 +233,80 @@ footer
   margin 20px 0 20px
 
 
-@media (max-width: 600px)
+@media(max-width 600px)
+  .navigation
+    flex-direction column
+    align-items flex-start
+
+  .navigation .logo
+    margin-left 10px
+    margin-bottom 5px
+
+  .navigation .logo a
+    font-size 1.2rem
+
+  .navigation .logo a img
+    width 25px
+    height 25px
+
+  .navigation .nav-list ul
+    flex-direction column
+    margin-right 0
+    padding 10px
+
+  .navigation .nav-list ul .nav-item
+    margin-right 0
+    margin-bottom 10px
+
+  .navigation .nav-list ul .nav-item a
+    font-size 12px
+
+  .about
+    padding 0 5vw
+
+  .about .my-photo img
+    min-width 0
+    max-width 100%
+    width 100%
+
   .about .greeting
-    min-width 100%
+    min-width 0
     max-width 100%
     margin-left 0
     padding 0 10px
 
-  .projects .cards-list .card-item
-    min-width 100%
+  .about .greeting p
+    font-size 0.9rem
+
+  .projects .projects-list
+    flex-direction column
+    align-items center
+
+  .projects .cards-list
+    min-width 0
     max-width 100%
+    margin 10px
+    padding 5px
+
+  .projects .cards-list .card-item
+    min-width 0
+    max-width 100%
+    height auto
     padding 10px
 
-  .navigation .logo
-    margin-left 10px
+  .projects .cards-list .card-item p
+    font-size 0.8rem
 
-  .navigation .nav-list ul
-    margin-right 10px
+  footer
+    flex-direction column
+    align-items flex-start
+    padding 10px
 
   footer .copyright,
   footer .contacts
     margin-left 10px
     margin-right 10px
 
+  footer .contacts ul
+    flex-direction column
+    gap 10px
