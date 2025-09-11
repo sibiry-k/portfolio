@@ -192,6 +192,11 @@ footer .copyright {
   margin-left: 200px;
   padding: 0;
 }
+@media (max-width: 1200px) {
+  footer .copyright {
+    margin-left: 30px;
+  }
+}
 footer .copyright a {
   color: #fff;
 }
@@ -199,6 +204,11 @@ footer .contacts {
   display: flex;
   flex-wrap: nowrap;
   margin-right: 200px;
+}
+@media (max-width: 1200px) {
+  footer .contacts {
+    margin-right: 30px;
+  }
 }
 footer .contacts ul {
   display: inline-flex;
