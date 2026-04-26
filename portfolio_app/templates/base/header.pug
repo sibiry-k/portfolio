@@ -1,13 +1,14 @@
-header
-  nav.navigation
-    .logo
-      a(href="https://sibiryk.ru" class="header-link")
-        img(src="{{url_for ('static', filename='img/python-light.svg') }}")
-        p sibiryk.ru
-
-    .nav-list
-      //-ul
-      //-  li.nav-item
-      //-    a(href="#projects" class="header-link-item") Проекты
-      //-  li.nav-item
-      //-    a(href="#contacts") Контакты
+nav.navbar#navbar
+  .navbar-container
+    a.navbar-logo(href="/") A. Ivanov
+    .navbar-links
+      a.nav-link(href="/#projects") Проекты
+      a.nav-link(href="/#contacts") Контакты
+    button.navbar-burger#burger-btn(aria-label="Открыть меню" aria-expanded="false")
+      svg(width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+        line(x1="3" y1="6" x2="21" y2="6")
+        line(x1="3" y1="12" x2="21" y2="12")
+        line(x1="3" y1="18" x2="21" y2="18")
+  .navbar-mobile#mobile-menu
+    a.nav-link-mobile(href="/#projects") Проекты
+    a.nav-link-mobile(href="/#contacts") Контакты

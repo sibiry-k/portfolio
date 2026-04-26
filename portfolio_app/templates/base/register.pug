@@ -1,33 +1,33 @@
 extends "base/base.pug"
 block content
-  .width-wide
-    .registration
-      .registartion-form
-        h2 Регистрация
-        form(method='post')
-          {{ form.csrf_token }}
-          h3 {{ form.username.label }}
+  .form-page
+    .form-card
+      h2.form-title Регистрация
+      form(method="post")
+        {{ form.csrf_token }}
+        .form-group
+          {{ form.username.label }}
           {{ form.username }}
-          h3 {{ form.email.label }}
+        .form-group
+          {{ form.email.label }}
           {{ form.email }}
-          h3 {{ form.password.label }}
+        .form-group
+          {{ form.password.label }}
           {{ form.password }}
-          h3 {{ form.password2.label }}
+        .form-group
+          {{ form.password2.label }}
           {{ form.password2 }}
-          .captcha
-            div(
-              style="height: 100px"
-              id="captcha-container"
-              class="smart-captcha"
-              data-sitekey="{{ captcha_key }}"
-              data-hl="ru"
-            )
-          .flash
-            - with messages = get_flashed_messages()
-              if messages
-                for message in messages
-                  p.warning= message
-          .button-submit
-            {{ form.submit }}
-
-
+        .form-captcha
+          div(
+            style="height: 100px"
+            id="captcha-container"
+            class="smart-captcha"
+            data-sitekey="{{ captcha_key }}"
+            data-hl="ru"
+          )
+        .form-flash
+          - with messages = get_flashed_messages()
+            if messages
+              for message in messages
+                p= message
+        {{ form.submit }}

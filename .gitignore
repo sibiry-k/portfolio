@@ -96,3 +96,4 @@ __marimo__/
 media_data
 compose.override.yaml
 .env.tests
+new_design/

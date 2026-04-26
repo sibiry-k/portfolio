@@ -1,35 +1,114 @@
 extends "base/base.pug"
 block content
-  .width-wide
-    .about
-      .my-photo
-        img(src="{{ url_for('main.media_data_files', filename='my_ava.png') }}")
-      .greeting
-        h2 Привет! Меня зовут Антон, <br> я Python backend-разработчик.
-        p Я занимаюсь разработкой web-приложений на <b>Django</b>, <b>FastAPI</b> и <b>Flask</b>
-          | , работаю с <b>PostgreSQL</b>, <b>Docker</b> и внедряю <b>CI/CD</b>.
-          | У меня есть опыт <b>коммерческой разработки</b>, а также <b>проектной работы в команде</b>.
-          | Пишу <b>REST API</b>, покрываю код тестами (в том числе с помощью <b>pytest</b>),
-          | умею адаптироваться к новым задачам и технологиям.
-        p Сейчас я открыт к предложениям об удалённой работе.
-          |  Особенно интересны проекты, где можно создавать работающие, полезные решения и расти профессионально.
-        p Если вы ищете разработчика, который:
-        ul
-          li Внимателен к деталям и пишет поддерживаемый код,
-          li Быстро осваивает новое и умеет работать в команде,
-          li Понимает ценность как инженерного качества, так и бизнес-результата
-        p давайте пообщаемся. Возможно, наше сотрудничество станет ценным для обеих сторон.
-        p Ниже вы можете посмотреть проекты, в которых я участвовал в качестве разработчика.
-        p Связаться со мной можно по контактам внизу страницы.
 
-    .projects
-      h2(id="projects") Проекты
-      .projects-list
+  // Hero
+  section.hero
+    .hero-inner
+      .hero-text-col
+        .hero-badge
+          span.hero-badge-dot
+          span.hero-badge-text Открыт к предложениям
+        h1.hero-name Антон Иванов
+        p.hero-subtitle Python Backend Developer
+        .hero-desc
+          p
+            | Разрабатываю web-приложения на&nbsp;
+            b Django
+            | ,&nbsp;
+            b FastAPI
+            |  и&nbsp;
+            b Flask
+            | , работаю с&nbsp;
+            b PostgreSQL
+            | ,&nbsp;
+            b Docker
+            |  и внедряю&nbsp;
+            b CI/CD
+            | . Есть опыт коммерческой разработки и&nbsp;проектной работы в команде. Пишу&nbsp;
+            b REST API
+            | , покрываю код тестами с помощью&nbsp;
+            b pytest
+            | .
+          p Сейчас открыт к предложениям об удалённой работе. Особенно интересны проекты, где можно создавать работающие решения и расти профессионально.
+        .hero-actions
+          a.btn-primary(href="#projects") Посмотреть проекты
+          a.btn-outline(href="#contacts") Связаться
+      .hero-photo-col
+        .hero-photo
+          img(src="{{ url_for('main.media_data_files', filename='my_ava.png') }}" alt="Антон Иванов")
+
+  // Tech logos strip
+  .tech-strip
+    .tech-logo
+      span.tech-logo-icon 🐍
+      span.tech-logo-name Python
+    .tech-logo
+      span.tech-logo-icon ⚡
+      span.tech-logo-name Django
+    .tech-logo
+      span.tech-logo-icon 🚀
+      span.tech-logo-name FastAPI
+    .tech-logo
+      span.tech-logo-icon 🐘
+      span.tech-logo-name PostgreSQL
+    .tech-logo
+      span.tech-logo-icon 🐳
+      span.tech-logo-name Docker
+    .tech-logo
+      span.tech-logo-icon 🔧
+      span.tech-logo-name Nginx
+
+  // Projects
+  section.section.section-white
+    .section-inner
+      h2.section-title(id="projects") Проекты
+      .projects-grid
         for project in projects
-          ul.cards-list
-            li.card-item
-              h3= project.title
-              p= project.description
-              p= project.stack
-              p= project.role
-              p!= project.tasks
+          .project-card
+            .project-card-img
+              if project.img_path
+                img(src="{{ url_for('main.media_data_files', filename=project.img_path) }}" alt="{{ project.title }}")
+              else
+                .project-card-img-placeholder
+            .project-card-body
+              span.project-role-badge {{ project.role }}
+              h3.project-card-title {{ project.title }}
+              p.project-card-desc {{ project.description }}
+              .project-tags
+                for tag in project.stack.split(',')
+                  span.project-tag {{ tag.strip() }}
+
+  // Tech stack
+  section.section.section-gray
+    .section-inner
+      h2.section-title Технический стек
+      .stack-grid
+        .stack-card
+          .stack-card-header
+            .stack-card-dot
+            span.stack-card-title Backend
+          ul.stack-card-items
+            li Python 3.12
+            li Django 5.x
+            li FastAPI
+            li Flask
+            li pytest
+        .stack-card
+          .stack-card-header
+            .stack-card-dot
+            span.stack-card-title Infrastructure
+          ul.stack-card-items
+            li Docker / Docker Compose
+            li PostgreSQL 17
+            li Nginx
+            li Gunicorn
+            li CI/CD
+        .stack-card
+          .stack-card-header
+            .stack-card-dot
+            span.stack-card-title Frontend
+          ul.stack-card-items
+            li HTMX
+            li Pug templates
+            li CSS / Stylus
+            li JavaScript ES6
